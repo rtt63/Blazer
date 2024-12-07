@@ -41,7 +41,9 @@ fn read_or_create_cache() -> io::Result<String> {
     Ok(contents)
 }
 
-fn main() {
-    read_or_create_cache();
-    println!("Hello, world!");
+fn main() -> io::Result<()> {
+    let cache_file = read_or_create_cache()?;
+    println!("{}", cache_file);
+
+    Ok(())
 }
